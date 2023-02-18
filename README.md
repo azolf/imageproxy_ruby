@@ -78,6 +78,7 @@ image.tiff
 ```
 image.quality(20)
 ```
+> The "q{qualityPercentage}" option can be used to specify the quality of the output file (JPEG only). If not specified, the default value of "95" is used.
 
 ### Rectangle Crop
 crop to 400x300px starting at (175,0)
@@ -94,7 +95,17 @@ image.rectangle_crop(start_x: 175, width: 400, height: 300)
 ```
 image.resize(30)
 ```
+> The size option takes the general form "{width}x{height}", where width and height are numbers. Integer values greater than 1 are interpreted as exact pixel values. Floats between 0 and 1 are interpreted as percentages of the original image size. If either value is omitted or set to 0, it will be automatically set to preserve the aspect ratio based on the other dimension. If a single number is provided (with no "x" separator), it will be used for both height and width.
 
+> Depending on the size options specified, an image may be cropped to fit the requested size. In all cases, the original aspect ratio of the image will be preserved; imageproxy will never stretch the original image.
+
+> When no explicit crop mode is specified, the following rules are followed:
+
+> - If both width and height values are specified, the image will be scaled to fill the space, cropping if necessary to fit the exact dimension.
+
+> - If only one of the width or height values is specified, the image will be resized to fit the specified dimension, scaling the other dimension as needed to maintain the aspect ratio.
+
+> If the "fit" option is specified together with a width and height value, the image will be resized to fit within a containing box of the specified size. As always, the original aspect ratio will be preserved. Specifying the "fit" option with only one of either width or height does the same thing as if "fit" had not been specified.
 ### Rotation
 ```
 image.rotation(20)
