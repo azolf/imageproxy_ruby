@@ -88,7 +88,7 @@ image.rectangle_crop(start_x: 175, width: 400, height: 300)
 
 > For all options, integer values are interpreted as exact pixel values and floats between 0 and 1 are interpreted as percentages of the original image size. Negative values for start_x and start_y are measured from the right and bottom edges of the image, respectively.
 
-If the crop width or height exceed the width or height of the image, the crop width or height will be adjusted, preserving the specified start_x and start_y values. Rectangular crop is applied before any other transformations.
+> If the crop width or height exceed the width or height of the image, the crop width or height will be adjusted, preserving the specified start_x and start_y values. Rectangular crop is applied before any other transformations.
 
 ### Resize
 ```
