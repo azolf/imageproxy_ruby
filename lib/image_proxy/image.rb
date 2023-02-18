@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'image_proxy/operations/smart_crop'
 require 'image_proxy/operations/rectangle_crop'
 require 'image_proxy/operations/rotation'
@@ -7,6 +9,7 @@ require 'image_proxy/operations/format'
 require 'image_proxy/operations/resize'
 
 module ImageProxyRuby
+  # represent Image with different functionalities
   class Image
     include Operations::SmartCrop
     include Operations::RectangleCrop
@@ -16,8 +19,7 @@ module ImageProxyRuby
     include Operations::Format
     include Operations::Resize
 
-    attr_accessor :remote_url
-    attr_accessor :operations
+    attr_accessor :remote_url, :operations
 
     def initialize(remote_url)
       @remote_url = remote_url
@@ -30,8 +32,7 @@ module ImageProxyRuby
       "#{ImageProxyRuby.configuration.server}#{operations_str}/#{remote_url}"
     end
 
-
-    alias_method :size, :resize
-    alias_method :to_s, :url
+    alias size resize
+    alias to_s url
   end
 end
