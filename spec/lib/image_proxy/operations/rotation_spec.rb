@@ -5,8 +5,8 @@ RSpec.describe ImageProxyRuby do
     end
 
     it 'add rotation to operations' do
-      image.rotation(20)
-      expect(image.operations).to eq ['r20']
+      image.rotation(90)
+      expect(image.operations).to eq ['r90']
     end
   end
 end

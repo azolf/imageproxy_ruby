@@ -5,8 +5,8 @@ RSpec.describe ImageProxyRuby do
     end
 
     it 'add different operations to image' do
-      image.rotation(20).smart_crop
-      expect(image.url).to eq 'http://localhost:8080/r20,sc/http://test.jpg'
+      image.rotation(90).smart_crop
+      expect(image.url).to eq 'http://localhost:8080/r90,sc/http://test.jpg'
     end
   end
 end
