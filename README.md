@@ -44,6 +44,15 @@ First of all create your Image and then you could add different operations to it
 ```
 
 These are the methods you could use.
+After applying the operations you could get the url like this
+```
+  image.url
+```
+
+or
+```
+  image.to_s
+```
 
 You could read all the details in [ImageProxy Documentations](https://pkg.go.dev/willnorris.com/go/imageproxy#ParseOptions)
 
@@ -108,7 +117,7 @@ image.resize(30)
 > If the "fit" option is specified together with a width and height value, the image will be resized to fit within a containing box of the specified size. As always, the original aspect ratio will be preserved. Specifying the "fit" option with only one of either width or height does the same thing as if "fit" had not been specified.
 ### Rotation
 ```
-image.rotation(20)
+image.rotation(90)
 ```
 
 ### Smart Crop
@@ -116,6 +125,10 @@ image.rotation(20)
 image.smart_crop
 ```
 
+#### Example
+```
+  image = ImageProxyRuby::Image.new('https://willnorris.com/images/imageproxy/small-things.jpg')
+  
 
-
-
+  image.smart_crop.rotation(180).quality(80).to_s
+```
